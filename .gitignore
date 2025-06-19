@@ -1,0 +1,12 @@
+# Prevent committing sensitive information
+
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+.DS_Store

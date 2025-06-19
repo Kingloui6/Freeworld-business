@@ -1,0 +1,15 @@
+const hre = require("hardhat");
+
+async function main() {
+  const UnityToken = await hre.ethers.getContractFactory("UnityToken");
+  const unityToken = await UnityToken.deploy();
+  await unityToken.deployed();
+  console.log(`UnityToken deployed to: ${unityToken.address}`);
+
+  // Repeat for other contracts: UnityChain, UniversalGateway, etc.
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
