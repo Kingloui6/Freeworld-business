@@ -1,0 +1,25 @@
+gh auth login
+gh repo create Kingloui6/FreeWorld-Business \
+  --public --clone
+cd FreeWorld-Business
+
+# Initialize basic starter site
+npm init -y
+npm install express
+cat > index.js << 'EOF'
+const express = require('express');
+const app = express();
+app.use(express.static('public')); 
+app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
+app.listen(process.env.PORT || 3000, () => console.log("Server running"));
+EOF
+
+mkdir public
+cat > public/index.html << 'EOF'
+<!DOCTYPE html><html><head><title>ALLGIVER777 Business</title></head>
+<body><h1>Welcome to ALLGIVER777 Official Business Page</h1></body></html>
+EOF
+
+git add .
+git commit -m "Initial commit - business site"
+git push origin main
